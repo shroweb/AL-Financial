@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
 @plugin "@tailwindcss/typography";
@@ -42,7 +42,7 @@
 
   --font-sans: var(--app-font-sans);
   --font-serif: var(--app-font-serif);
-  
+
   --color-navy: #0D1B2A;
   --color-surface: #F7F5F0;
   --color-gold: #F5C842;
@@ -54,8 +54,8 @@
 }
 
 :root {
-  --background: 43 27% 95%; /* surface */
-  --foreground: 0 0% 10%; /* text-dark */
+  --background: 43 27% 95%;
+  --foreground: 0 0% 10%;
 
   --border: 215 14% 90%;
   --input: 215 14% 90%;
@@ -69,11 +69,11 @@
   --popover-foreground: 0 0% 10%;
   --popover-border: 215 14% 90%;
 
-  --primary: 211 53% 11%; /* navy */
+  --primary: 211 53% 11%;
   --primary-foreground: 0 0% 100%;
   --primary-border: 211 53% 11%;
 
-  --secondary: 45 90% 61%; /* gold */
+  --secondary: 45 90% 61%;
   --secondary-foreground: 211 53% 11%;
   --secondary-border: 45 90% 61%;
 
@@ -92,7 +92,7 @@
   --app-font-sans: 'Inter', sans-serif;
   --app-font-serif: 'DM Serif Display', serif;
   --radius: 0.5rem;
-  
+
   --button-outline: rgba(0,0,0, .10);
   --badge-outline: rgba(0,0,0, .05);
   --opaque-button-border-intensity: -8;
@@ -109,5 +109,87 @@
   }
   h1, h2, h3, h4, h5, h6 {
     @apply font-serif font-normal;
+  }
+}
+
+@layer utilities {
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.75s ease, transform 0.75s ease;
+  }
+  .reveal.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-4 { transition-delay: 0.4s; }
+
+  .gold-rule {
+    display: block;
+    width: 3rem;
+    height: 2px;
+    background-color: #F5C842;
+    margin-bottom: 1.5rem;
+  }
+
+  .btn-al {
+    display: inline-block;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 1rem 2.25rem;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  }
+  .btn-al-gold {
+    background-color: #F5C842;
+    color: #0D1B2A;
+  }
+  .btn-al-gold:hover {
+    background-color: #f0bc2a;
+  }
+  .btn-al-navy {
+    background-color: #0D1B2A;
+    color: #ffffff;
+  }
+  .btn-al-navy:hover {
+    background-color: #162435;
+  }
+  .btn-al-outline-gold {
+    border: 1.5px solid #F5C842;
+    color: #F5C842;
+    background-color: transparent;
+  }
+  .btn-al-outline-gold:hover {
+    background-color: #F5C842;
+    color: #0D1B2A;
+  }
+
+  .input-line {
+    border: 0;
+    border-bottom: 1.5px solid #d1d5db;
+    border-radius: 0;
+    background-color: transparent;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0.625rem;
+    padding-bottom: 0.625rem;
+    font-size: 1rem;
+    color: #0D1B2A;
+    outline: none;
+    box-shadow: none;
+    transition: border-color 0.2s ease;
+    width: 100%;
+  }
+  .input-line:focus {
+    border-bottom-color: #0D1B2A;
+    box-shadow: none;
+    outline: none;
+  }
+  .input-line::placeholder {
+    color: #9ca3af;
   }
 }
