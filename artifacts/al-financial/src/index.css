@@ -205,13 +205,6 @@
     color: #0d1b2a;
   }
 
-  .advice-panel {
-    border: 1px solid rgba(255, 255, 255, 0.14);
-    background: rgba(8, 19, 31, 0.72);
-    box-shadow: 0 34px 90px rgba(0, 0, 0, 0.28);
-    backdrop-filter: blur(18px);
-  }
-
   .input-line {
     border: 0;
     border-bottom: 1.5px solid #d1d5db;

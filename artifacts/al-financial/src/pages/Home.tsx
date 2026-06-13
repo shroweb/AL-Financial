@@ -1,12 +1,6 @@
 import { PageMeta } from "@/components/PageMeta";
 import { useInView } from "@/hooks/use-in-view";
-import {
-  ArrowRight,
-  CheckCircle2,
-  Home as HomeIcon,
-  Phone,
-  ShieldCheck,
-} from "lucide-react";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { type MouseEvent } from "react";
 import { Link } from "wouter";
 
@@ -28,28 +22,28 @@ const services = [
   {
     title: "Income Protection",
     desc: "A regular income if illness or injury means you cannot work.",
-    img: "https://aandlfinancial.com/wp-content/uploads/2018/06/critical-ilness.jpg",
+    img: "https://aandlfinancial.com/wp-content/uploads/2018/06/iStock-642036060.jpg",
     href: "/services/income-protection",
     proof: "Monthly income",
   },
   {
     title: "Mortgage Broker",
     desc: "A search across a wide panel of lenders for a mortgage that fits your circumstances.",
-    img: "https://aandlfinancial.com/wp-content/uploads/2018/07/family-hands-house.png",
+    img: "https://aandlfinancial.com/wp-content/uploads/2018/06/family-at-home.png",
     href: "/services/mortgage-broker",
     proof: "Lender panel",
   },
   {
     title: "Mortgage Protection",
     desc: "Cover designed to help your family keep the home if the worst happens.",
-    img: "https://aandlfinancial.com/wp-content/uploads/2018/07/family-hands-house.png",
+    img: "https://aandlfinancial.com/wp-content/uploads/2018/06/636367553381306204-yellow-door-ThinkstockPhotos-156211936.jpg",
     href: "/services/mortgage-protection",
     proof: "Home security",
   },
   {
     title: "Home Insurance",
     desc: "Buildings and contents cover matched to the home and belongings you actually have.",
-    img: "https://aandlfinancial.com/wp-content/uploads/2018/06/yellow-house.jpg",
+    img: "https://aandlfinancial.com/wp-content/uploads/2018/06/house-insurance-premiums.jpg",
     href: "/services/home-insurance",
     proof: "Practical cover",
   },
@@ -89,12 +83,6 @@ const whyPoints = [
     title: "We explain everything",
     desc: "You get plain English, clear costs, and time to ask questions. No pressure, no mystery, no jargon dressed up as expertise.",
   },
-];
-
-const process = [
-  "Tell Anthony what you are trying to protect or finance.",
-  "He reviews your income, mortgage, family, health, and priorities.",
-  "You receive a clear recommendation and know the cost before anything goes ahead.",
 ];
 
 const testimonials = [
@@ -152,8 +140,8 @@ export default function Home() {
           <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-navy to-transparent" />
         </div>
 
-        <div className="relative mx-auto grid min-h-[calc(100vh-5rem)] max-w-7xl grid-cols-1 items-end gap-12 px-4 pb-10 pt-24 sm:px-6 lg:grid-cols-[1.05fr_.95fr] lg:px-8 lg:pb-16">
-          <div className="max-w-3xl">
+        <div className="relative mx-auto flex min-h-[calc(88vh-5rem)] max-w-7xl items-end px-4 pb-16 pt-28 sm:px-6 lg:px-8 lg:pb-24">
+          <div className="max-w-4xl">
             <div className="mb-7 inline-flex items-center gap-3 border border-white/15 bg-white/8 px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-white/72 backdrop-blur">
               <span className="h-1.5 w-1.5 rounded-full bg-gold" />
               Hull mortgage and protection advice
@@ -181,49 +169,6 @@ export default function Home() {
                 See our services
                 <ArrowRight className="h-4 w-4" />
               </a>
-            </div>
-          </div>
-
-          <div className="mb-2 grid gap-4 lg:justify-end">
-            <div className="advice-panel w-full max-w-lg p-6 sm:p-8">
-              <div className="flex items-start justify-between gap-6">
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold/80">
-                    Advice snapshot
-                  </p>
-                  <h2 className="mt-3 text-3xl leading-tight text-white">
-                    Cover that starts with a conversation.
-                  </h2>
-                </div>
-                <ShieldCheck className="h-9 w-9 shrink-0 text-gold" />
-              </div>
-              <div className="mt-7 space-y-4">
-                {process.map((item, index) => (
-                  <div key={item} className="grid grid-cols-[2rem_1fr] gap-4">
-                    <span className="flex h-8 w-8 items-center justify-center rounded-full border border-gold/30 text-xs font-semibold text-gold">
-                      {index + 1}
-                    </span>
-                    <p className="text-sm leading-6 text-white/68">{item}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="grid grid-cols-2 gap-4">
-              <div className="border border-white/10 bg-white/8 p-5 backdrop-blur">
-                <HomeIcon className="mb-4 h-5 w-5 text-gold" />
-                <p className="text-sm font-semibold text-white">Home visits</p>
-                <p className="mt-1 text-xs text-white/52">
-                  Hull and surrounding areas
-                </p>
-              </div>
-              <div className="border border-white/10 bg-white/8 p-5 backdrop-blur">
-                <Phone className="mb-4 h-5 w-5 text-gold" />
-                <p className="text-sm font-semibold text-white">Phone advice</p>
-                <p className="mt-1 text-xs text-white/52">
-                  Simple, flexible appointments
-                </p>
-              </div>
             </div>
           </div>
         </div>
@@ -396,32 +341,76 @@ export default function Home() {
       </section>
 
       <section className="bg-surface py-24">
-        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div
             ref={testimonialsRef}
-            className={`mb-14 reveal ${testimonialsInView ? "in-view" : ""}`}
+            className={`mb-14 flex flex-col justify-between gap-8 md:flex-row md:items-end reveal ${testimonialsInView ? "in-view" : ""}`}
           >
-            <span className="gold-rule" />
-            <h2 className="text-4xl text-navy md:text-5xl">What clients say</h2>
+            <div>
+              <span className="gold-rule" />
+              <h2 className="text-4xl text-navy md:text-5xl">
+                What clients say
+              </h2>
+            </div>
+            <p className="max-w-sm text-base leading-7 text-gray-600">
+              Real feedback from people Anthony has helped with mortgages,
+              protection, and the decisions around both.
+            </p>
           </div>
 
-          <div className="space-y-5">
-            {testimonials.map((testimonial, index) => (
-              <article
-                key={testimonial.name}
-                className={`grid gap-8 border border-navy/10 bg-white p-7 shadow-[0_24px_70px_rgba(13,27,42,.05)] md:grid-cols-[13rem_1fr] md:p-9 reveal reveal-delay-${index + 1} ${testimonialsInView ? "in-view" : ""}`}
-              >
+          <div className="grid gap-5 lg:grid-cols-12">
+            <article
+              className={`border border-navy/10 bg-navy p-8 text-white shadow-[0_28px_80px_rgba(13,27,42,.14)] md:p-10 lg:col-span-7 lg:min-h-[31rem] reveal reveal-delay-1 ${testimonialsInView ? "in-view" : ""}`}
+            >
+              <div className="flex h-full flex-col justify-between gap-12">
+                <p className="text-3xl leading-tight text-white md:text-4xl lg:text-5xl">
+                  “{testimonials[0].text}”
+                </p>
                 <div>
-                  <p className="text-xl text-navy">{testimonial.name}</p>
-                  <p className="mt-2 text-xs font-semibold uppercase tracking-[0.15em] text-gold">
-                    {testimonial.meta}
+                  <p className="text-2xl text-gold">{testimonials[0].name}</p>
+                  <p className="mt-2 text-xs font-semibold uppercase tracking-[0.15em] text-white/45">
+                    {testimonials[0].meta}
                   </p>
                 </div>
-                <p className="text-2xl leading-snug text-navy md:text-3xl">
-                  “{testimonial.text}”
-                </p>
-              </article>
-            ))}
+              </div>
+            </article>
+
+            <div className="grid gap-5 lg:col-span-5">
+              {testimonials.slice(1).map((testimonial, index) => (
+                <article
+                  key={testimonial.name}
+                  className={`border border-navy/10 bg-white p-7 shadow-[0_24px_70px_rgba(13,27,42,.05)] reveal reveal-delay-${index + 2} ${testimonialsInView ? "in-view" : ""}`}
+                >
+                  <p className="text-2xl leading-snug text-navy">
+                    “{testimonial.text}”
+                  </p>
+                  <div className="mt-8 border-t border-navy/10 pt-5">
+                    <p className="text-xl text-navy">{testimonial.name}</p>
+                    <p className="mt-2 text-xs font-semibold uppercase tracking-[0.15em] text-gold">
+                      {testimonial.meta}
+                    </p>
+                  </div>
+                </article>
+              ))}
+            </div>
+
+            <div className="grid gap-5 md:grid-cols-3 lg:col-span-12">
+              {[
+                ["Same-day progress", "Mortgage sorted once documents were in"],
+                ["First-time buyers", "Support through specific requirements"],
+                ["Stress reduced", "Clear answers from start to finish"],
+              ].map(([label, value], index) => (
+                <article
+                  key={label}
+                  className={`border border-navy/10 bg-[#EEE9DC] p-6 reveal reveal-delay-${index + 1} ${testimonialsInView ? "in-view" : ""}`}
+                >
+                  <p className="text-xs font-semibold uppercase tracking-[0.16em] text-gold">
+                    {label}
+                  </p>
+                  <p className="mt-4 text-xl leading-snug text-navy">{value}</p>
+                </article>
+              ))}
+            </div>
           </div>
         </div>
       </section>
