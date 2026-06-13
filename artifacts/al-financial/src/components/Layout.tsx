@@ -1,7 +1,7 @@
 import { ReactNode, useEffect, useState } from "react";
 import { Link, useLocation } from "wouter";
 import logoPath from "@assets/al-logo-white.png";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { ChevronDown, Mail, MapPin, Menu, Phone, X } from "lucide-react";
 
 const SERVICES = [
   { name: "Life Cover", href: "/services/life-cover" },
@@ -34,22 +34,49 @@ export function Layout({ children }: { children: ReactNode }) {
   return (
     <div className="min-h-screen flex flex-col bg-surface font-sans">
       <header
-        className={`bg-navy text-white sticky top-0 z-50 transition-all duration-300 ${
-          scrolled ? "shadow-xl border-b border-white/10" : ""
+        className={`sticky top-0 z-50 bg-navy text-white transition-all duration-300 ${
+          scrolled ? "shadow-xl shadow-navy/30" : ""
         }`}
       >
+        <div className="hidden border-b border-white/10 bg-[#091420] lg:block">
+          <div className="mx-auto flex h-10 max-w-7xl items-center justify-between px-4 text-xs text-white/55 sm:px-6 lg:px-8">
+            <div className="flex items-center gap-5">
+              <span className="inline-flex items-center gap-2">
+                <MapPin className="h-3.5 w-3.5 text-gold" />
+                Hull based, UK focused
+              </span>
+              <span>Authorised and regulated advice</span>
+            </div>
+            <div className="flex items-center gap-5">
+              <a
+                href="tel:07715832346"
+                className="inline-flex items-center gap-2 transition-colors hover:text-gold"
+              >
+                <Phone className="h-3.5 w-3.5" />
+                07715 832346
+              </a>
+              <a
+                href="mailto:Info@aandlfinancial.com"
+                className="inline-flex items-center gap-2 transition-colors hover:text-gold"
+              >
+                <Mail className="h-3.5 w-3.5" />
+                Info@aandlfinancial.com
+              </a>
+            </div>
+          </div>
+        </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-20">
+          <div className="flex h-20 items-center justify-between">
             <Link href="/" className="flex items-center shrink-0">
               <img
                 src={logoPath}
                 alt="A&L Financial Solutions"
-                className="h-11 w-auto object-contain"
+                className="h-10 w-auto object-contain sm:h-11"
               />
             </Link>
 
             {/* Desktop Nav */}
-            <nav className="hidden md:flex items-center gap-8">
+            <nav className="hidden md:flex items-center gap-7">
               <Link
                 href="/"
                 className={`text-sm font-medium tracking-wide transition-colors hover:text-gold ${
@@ -65,7 +92,7 @@ export function Layout({ children }: { children: ReactNode }) {
                 onMouseLeave={() => setServicesDropdownOpen(false)}
               >
                 <button
-                  className={`flex items-center gap-1 text-sm font-medium tracking-wide transition-colors hover:text-gold ${
+                  className={`flex items-center gap-1.5 text-sm font-medium tracking-wide transition-colors hover:text-gold ${
                     isServicesActive ? "text-gold" : "text-white/80"
                   }`}
                 >
@@ -84,12 +111,12 @@ export function Layout({ children }: { children: ReactNode }) {
                       : "opacity-0 pointer-events-none -translate-y-1"
                   }`}
                 >
-                  <div className="bg-white shadow-2xl border-t-2 border-gold">
+                  <div className="border-t-2 border-gold bg-white shadow-2xl shadow-navy/20">
                     {SERVICES.map((service) => (
                       <Link
                         key={service.href}
                         href={service.href}
-                        className={`block px-5 py-3 text-sm border-b border-gray-100 last:border-0 hover:bg-surface hover:text-gold transition-colors ${
+                        className={`block border-b border-gray-100 px-5 py-3 text-sm transition-colors last:border-0 hover:bg-surface hover:text-gold ${
                           isActive(service.href)
                             ? "text-gold font-medium bg-surface"
                             : "text-gray-800"
@@ -114,10 +141,10 @@ export function Layout({ children }: { children: ReactNode }) {
 
               <Link
                 href="/contact"
-                className="btn-al btn-al-outline-gold text-xs ml-2"
+                className="btn-al btn-al-outline-gold ml-2 text-xs"
                 data-testid="link-nav-book"
               >
-                Book appointment
+                Book a consultation
               </Link>
             </nav>
 
@@ -145,7 +172,7 @@ export function Layout({ children }: { children: ReactNode }) {
               : "opacity-0 pointer-events-none"
           }`}
         >
-          <nav className="flex flex-col p-8 gap-0 divide-y divide-white/10">
+          <nav className="flex flex-col gap-0 divide-y divide-white/10 p-8">
             <Link
               href="/"
               className={`py-5 text-2xl font-serif ${
@@ -197,10 +224,7 @@ export function Layout({ children }: { children: ReactNode }) {
             </Link>
 
             <div className="pt-8">
-              <Link
-                href="/contact"
-                className="btn-al btn-al-gold inline-block"
-              >
+              <Link href="/contact" className="btn-al btn-al-gold inline-block">
                 Book a free appointment
               </Link>
             </div>
@@ -211,8 +235,8 @@ export function Layout({ children }: { children: ReactNode }) {
       <main className="flex-grow">{children}</main>
 
       {/* Pre-footer contact strip */}
-      <div className="bg-[#091420] py-10 border-t border-white/5">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+      <div className="border-t border-white/5 bg-[#091420] py-10">
+        <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 px-4 sm:px-6 md:flex-row md:items-center lg:px-8">
           <div>
             <p className="text-xs uppercase tracking-widest text-white/40 mb-2">
               Speak to Anthony directly
@@ -225,7 +249,7 @@ export function Layout({ children }: { children: ReactNode }) {
               07715 832346
             </a>
           </div>
-          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5">
+          <div className="flex flex-col items-start gap-5 sm:flex-row sm:items-center">
             <a
               href="mailto:Info@aandlfinancial.com"
               className="text-sm text-white/50 hover:text-gold transition-colors"
@@ -244,7 +268,7 @@ export function Layout({ children }: { children: ReactNode }) {
       </div>
 
       {/* Footer */}
-      <footer className="bg-navy text-white pt-16 pb-10">
+      <footer className="bg-navy pt-16 pb-10 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-14">
             <div className="md:col-span-4">
@@ -256,18 +280,21 @@ export function Layout({ children }: { children: ReactNode }) {
               <p className="text-xs uppercase tracking-widest text-gold/60 mb-7">
                 Authorised and Regulated by the FCA
               </p>
-              <p className="text-white/60 text-sm leading-relaxed mb-1">
-                20 The Pines, Kingswood
-              </p>
-              <p className="text-white/60 text-sm leading-relaxed mb-1">
-                Hull, HU7 3GT
-              </p>
-              <p className="text-white/60 text-sm leading-relaxed mb-1">
-                07715 832346
-              </p>
-              <p className="text-white/60 text-sm leading-relaxed">
-                Info@aandlfinancial.com
-              </p>
+              <div className="space-y-3 text-sm leading-relaxed text-white/60">
+                <p>20 The Pines, Kingswood, Hull, HU7 3GT</p>
+                <a
+                  href="tel:07715832346"
+                  className="block transition-colors hover:text-gold"
+                >
+                  07715 832346
+                </a>
+                <a
+                  href="mailto:Info@aandlfinancial.com"
+                  className="block transition-colors hover:text-gold"
+                >
+                  Info@aandlfinancial.com
+                </a>
+              </div>
             </div>
 
             <div className="md:col-span-4">
@@ -326,13 +353,13 @@ export function Layout({ children }: { children: ReactNode }) {
               Your home may be repossessed if you do not keep up repayments on
               your mortgage. A&L Financial Solutions Ltd is an appointed
               representative of PRIMIS Mortgage Network, a trading name of First
-              Complete Limited. First Complete Limited is authorised and regulated
-              by the Financial Conduct Authority. Registered in England and Wales.
-              Registered office: 20 The Pines, Kingswood, Hull, England, HU7 3GT.
-              Registration No: 09731522. For mortgage advice, we charge a fee of
-              between £457 and £997, agreed before we begin. For insurance
-              services, we receive commission from the product provider, no fee is
-              charged to you.
+              Complete Limited. First Complete Limited is authorised and
+              regulated by the Financial Conduct Authority. Registered in
+              England and Wales. Registered office: 20 The Pines, Kingswood,
+              Hull, England, HU7 3GT. Registration No: 09731522. For mortgage
+              advice, we charge a fee of between £457 and £997, agreed before we
+              begin. For insurance services, we receive commission from the
+              product provider, no fee is charged to you.
             </p>
           </div>
         </div>

@@ -1,55 +1,75 @@
 import { PageMeta } from "@/components/PageMeta";
-import { Link } from "wouter";
 import { useInView } from "@/hooks/use-in-view";
+import {
+  ArrowRight,
+  CheckCircle2,
+  Home as HomeIcon,
+  Phone,
+  ShieldCheck,
+} from "lucide-react";
+import { type MouseEvent } from "react";
+import { Link } from "wouter";
 
 const services = [
   {
     title: "Life Cover",
-    desc: "A lump sum to ensure the people who depend on you are not left struggling financially.",
+    desc: "A lump sum for the people who depend on you if you die during the policy term.",
     img: "https://aandlfinancial.com/wp-content/uploads/2018/06/pregnant.jpg",
     href: "/services/life-cover",
-    span: "md:col-span-7",
-    imgHeight: "h-80",
+    proof: "Family protection",
   },
   {
     title: "Critical Illness",
-    desc: "A tax-free lump sum if you are diagnosed with a specified serious condition, giving you breathing room.",
+    desc: "Tax-free support if you are diagnosed with a specified serious illness.",
     img: "https://aandlfinancial.com/wp-content/uploads/2018/06/critical-ilness.jpg",
     href: "/services/critical-illness",
-    span: "md:col-span-5",
-    imgHeight: "h-80",
+    proof: "Breathing room",
   },
   {
     title: "Income Protection",
-    desc: "A regular income if illness or injury leaves you unable to work and earn.",
+    desc: "A regular income if illness or injury means you cannot work.",
     img: "https://aandlfinancial.com/wp-content/uploads/2018/06/critical-ilness.jpg",
     href: "/services/income-protection",
-    span: "md:col-span-5",
-    imgHeight: "h-72",
+    proof: "Monthly income",
   },
   {
     title: "Mortgage Broker",
-    desc: "Expert market searches to find a mortgage deal that fits your specific circumstances.",
+    desc: "A search across a wide panel of lenders for a mortgage that fits your circumstances.",
     img: "https://aandlfinancial.com/wp-content/uploads/2018/07/family-hands-house.png",
     href: "/services/mortgage-broker",
-    span: "md:col-span-7",
-    imgHeight: "h-72",
+    proof: "Lender panel",
   },
   {
     title: "Mortgage Protection",
-    desc: "Ensure your outstanding mortgage balance is paid off so your family keeps the home.",
+    desc: "Cover designed to help your family keep the home if the worst happens.",
     img: "https://aandlfinancial.com/wp-content/uploads/2018/07/family-hands-house.png",
     href: "/services/mortgage-protection",
-    span: "md:col-span-6",
-    imgHeight: "h-64",
+    proof: "Home security",
   },
   {
     title: "Home Insurance",
-    desc: "Cover the cost of repairing your home and replacing your belongings if something goes wrong.",
+    desc: "Buildings and contents cover matched to the home and belongings you actually have.",
     img: "https://aandlfinancial.com/wp-content/uploads/2018/06/yellow-house.jpg",
     href: "/services/home-insurance",
-    span: "md:col-span-6",
-    imgHeight: "h-64",
+    proof: "Practical cover",
+  },
+];
+
+const audiencePaths = [
+  {
+    title: "Buying your first home",
+    desc: "Understand what you can borrow, which lender is likely to fit, and what protection belongs beside the mortgage.",
+    href: "/services/mortgage-broker",
+  },
+  {
+    title: "Protecting your family",
+    desc: "Put the right mix of life cover, critical illness, and income protection around the people who rely on you.",
+    href: "/services/life-cover",
+  },
+  {
+    title: "Reviewing old policies",
+    desc: "Check whether existing cover still matches your mortgage, income, family, and current health situation.",
+    href: "/contact",
   },
 ];
 
@@ -57,42 +77,59 @@ const whyPoints = [
   {
     num: "01",
     title: "We come to you",
-    desc: "Appointments at home, at your office, or by phone, whichever works for you. There is no need to take time out of your day to travel to us.",
+    desc: "Appointments can happen at home, at your office, or by phone. Advice fits around real life, not the other way around.",
   },
   {
     num: "02",
     title: "We search the market",
-    desc: "Anthony has access to a panel of insurers and lenders, not just one. The recommendations you get are based on what fits your situation, not what one company offers.",
+    desc: "Anthony has access to a panel of insurers and lenders. The recommendation is shaped by your situation, not one provider's product list.",
   },
   {
     num: "03",
     title: "We explain everything",
-    desc: "Financial products can be confusing. Anthony will talk you through your options in plain English, without jargon or pressure, so you can make the decision that is right for you.",
+    desc: "You get plain English, clear costs, and time to ask questions. No pressure, no mystery, no jargon dressed up as expertise.",
   },
+];
+
+const process = [
+  "Tell Anthony what you are trying to protect or finance.",
+  "He reviews your income, mortgage, family, health, and priorities.",
+  "You receive a clear recommendation and know the cost before anything goes ahead.",
 ];
 
 const testimonials = [
   {
     name: "Rebecca Poole",
+    meta: "Mortgage and protection client",
     text: "Anthony at A&L has been professional, understanding, efficient and kind. Our mortgage was sorted the same day we sent our documentation. I can't recommend him enough.",
   },
   {
     name: "Siobhan Dunn",
+    meta: "First-time buyer",
     text: "As first-time buyers with specific requirements, Anthony was instrumental in making it happen. Quick, responsive, and he went above and beyond from start to finish.",
   },
   {
     name: "Alexander Marsh",
+    meta: "Home buyer",
     text: "We didn't have a clue where to start. Anthony set our minds at ease, took all the stress out of the process, and found us the best mortgage rate possible. Would recommend to anyone.",
   },
 ];
 
+const trustItems = [
+  "FCA regulated advice",
+  "Appointed representative of PRIMIS",
+  "Hull based, UK focused",
+  "No fee for insurance advice",
+];
+
 export default function Home() {
   const { ref: servicesRef, inView: servicesInView } = useInView();
+  const { ref: pathsRef, inView: pathsInView } = useInView();
   const { ref: whyRef, inView: whyInView } = useInView();
   const { ref: testimonialsRef, inView: testimonialsInView } = useInView();
   const { ref: ctaRef, inView: ctaInView } = useInView();
 
-  const scrollToServices = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  const scrollToServices = (e: MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     document.getElementById("services")?.scrollIntoView({ behavior: "smooth" });
   };
@@ -100,222 +137,310 @@ export default function Home() {
   return (
     <>
       <PageMeta
-        title="A&L Financial Solutions | Protection built around your life"
-        description="Hull-based financial advice firm specialising in mortgages, life cover, and personal protection insurance."
+        title="A&L Financial Solutions | Mortgage and protection advice in Hull"
+        description="Premium local mortgage and protection advice from Anthony Thackeray at A&L Financial Solutions in Hull."
       />
 
-      {/* Hero */}
-      <section className="relative min-h-[92vh] flex items-end pb-24 lg:pb-32 overflow-hidden">
-        <div className="absolute inset-0 z-0">
+      <section className="relative overflow-hidden bg-navy text-white">
+        <div className="absolute inset-0">
           <img
             src="https://aandlfinancial.com/wp-content/uploads/2018/06/iStock-672386182-5a78f5346bf0690037752017.jpg"
-            alt="Family at home"
-            className="w-full h-full object-cover"
+            alt="Family relaxing together at home"
+            className="h-full w-full object-cover opacity-35"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-navy/90 via-navy/75 to-navy/40" />
-          <div className="absolute inset-0 bg-gradient-to-t from-navy/60 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-[linear-gradient(90deg,#0D1B2A_0%,rgba(13,27,42,.92)_38%,rgba(13,27,42,.58)_100%)]" />
+          <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-navy to-transparent" />
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-          <div className="max-w-2xl">
-            <span className="gold-rule" />
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif text-white leading-[1.06] mb-7">
-              Protection built around your life.{" "}
-              <em className="not-italic text-white/60">
+        <div className="relative mx-auto grid min-h-[calc(100vh-5rem)] max-w-7xl grid-cols-1 items-end gap-12 px-4 pb-10 pt-24 sm:px-6 lg:grid-cols-[1.05fr_.95fr] lg:px-8 lg:pb-16">
+          <div className="max-w-3xl">
+            <div className="mb-7 inline-flex items-center gap-3 border border-white/15 bg-white/8 px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-white/72 backdrop-blur">
+              <span className="h-1.5 w-1.5 rounded-full bg-gold" />
+              Hull mortgage and protection advice
+            </div>
+            <h1 className="max-w-4xl text-5xl leading-[1.02] text-white sm:text-6xl lg:text-7xl">
+              Protection built around your life.
+              <span className="block text-white/58">
                 Not a product brochure.
-              </em>
+              </span>
             </h1>
-            <p className="text-lg text-white/75 mb-10 leading-relaxed max-w-xl">
-              Anthony Thackeray at A&L Financial takes time to understand your
-              situation, then finds cover that actually fits it.
+            <p className="mt-7 max-w-2xl text-lg leading-8 text-white/72">
+              Anthony Thackeray takes time to understand what matters, then
+              searches across a panel of lenders and insurers for cover that
+              actually fits.
             </p>
-            <div className="flex flex-col sm:flex-row items-start gap-5">
-              <Link
-                href="/contact"
-                className="btn-al btn-al-gold"
-                data-testid="link-hero-cta"
-              >
+            <div className="mt-9 flex flex-col gap-4 sm:flex-row sm:items-center">
+              <Link href="/contact" className="btn-al btn-al-gold">
                 Start a conversation
               </Link>
               <a
                 href="#services"
                 onClick={scrollToServices}
-                className="inline-flex items-center gap-2 text-white/70 text-sm tracking-wide hover:text-gold transition-colors pt-4"
-                data-testid="link-hero-services"
+                className="inline-flex items-center gap-3 text-sm font-semibold tracking-wide text-white/72 transition-colors hover:text-gold"
               >
-                <span className="w-8 h-px bg-white/40 inline-block" />
                 See our services
+                <ArrowRight className="h-4 w-4" />
               </a>
+            </div>
+          </div>
+
+          <div className="mb-2 grid gap-4 lg:justify-end">
+            <div className="advice-panel w-full max-w-lg p-6 sm:p-8">
+              <div className="flex items-start justify-between gap-6">
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold/80">
+                    Advice snapshot
+                  </p>
+                  <h2 className="mt-3 text-3xl leading-tight text-white">
+                    Cover that starts with a conversation.
+                  </h2>
+                </div>
+                <ShieldCheck className="h-9 w-9 shrink-0 text-gold" />
+              </div>
+              <div className="mt-7 space-y-4">
+                {process.map((item, index) => (
+                  <div key={item} className="grid grid-cols-[2rem_1fr] gap-4">
+                    <span className="flex h-8 w-8 items-center justify-center rounded-full border border-gold/30 text-xs font-semibold text-gold">
+                      {index + 1}
+                    </span>
+                    <p className="text-sm leading-6 text-white/68">{item}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="grid grid-cols-2 gap-4">
+              <div className="border border-white/10 bg-white/8 p-5 backdrop-blur">
+                <HomeIcon className="mb-4 h-5 w-5 text-gold" />
+                <p className="text-sm font-semibold text-white">Home visits</p>
+                <p className="mt-1 text-xs text-white/52">
+                  Hull and surrounding areas
+                </p>
+              </div>
+              <div className="border border-white/10 bg-white/8 p-5 backdrop-blur">
+                <Phone className="mb-4 h-5 w-5 text-gold" />
+                <p className="text-sm font-semibold text-white">Phone advice</p>
+                <p className="mt-1 text-xs text-white/52">
+                  Simple, flexible appointments
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* FCA Trust Strip */}
-      <div className="bg-[#0a1622] border-b border-white/5 py-4">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-6">
-            {[
-              "FCA Regulated",
-              "Whole of Market Access",
-              "Hull-based Adviser",
-              "No fee for insurance advice",
-            ].map((item, i, arr) => (
-              <span key={item} className="flex items-center gap-3 sm:gap-6">
-                <span className="text-xs uppercase tracking-widest text-white/45 whitespace-nowrap">
-                  {item}
-                </span>
-                {i < arr.length - 1 && (
-                  <span className="text-gold/40 text-sm">·</span>
-                )}
-              </span>
-            ))}
+      <section className="bg-[#091420] py-5">
+        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-x-7 gap-y-3 px-4 sm:px-6 lg:px-8">
+          {trustItems.map((item) => (
+            <div
+              key={item}
+              className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-white/52"
+            >
+              <CheckCircle2 className="h-4 w-4 text-gold/80" />
+              {item}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section ref={pathsRef} className="bg-surface py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div
+            className={`grid gap-10 lg:grid-cols-[.75fr_1.25fr] reveal ${pathsInView ? "in-view" : ""}`}
+          >
+            <div>
+              <span className="gold-rule" />
+              <h2 className="text-4xl leading-tight text-navy md:text-5xl">
+                Start with what is happening in your life.
+              </h2>
+            </div>
+            <div className="grid gap-4 md:grid-cols-3">
+              {audiencePaths.map((path, index) => (
+                <Link
+                  key={path.title}
+                  href={path.href}
+                  className={`group border border-navy/10 bg-white p-6 shadow-[0_24px_60px_rgba(13,27,42,.06)] transition duration-300 hover:-translate-y-1 hover:border-gold/70 reveal reveal-delay-${index + 1} ${pathsInView ? "in-view" : ""}`}
+                >
+                  <p className="text-xl leading-tight text-navy">
+                    {path.title}
+                  </p>
+                  <p className="mt-4 text-sm leading-6 text-gray-600">
+                    {path.desc}
+                  </p>
+                  <span className="mt-6 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-navy transition-colors group-hover:text-gold">
+                    Explore
+                    <ArrowRight className="h-4 w-4" />
+                  </span>
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* Services Grid */}
-      <section id="services" className="py-28 bg-surface">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="services" className="bg-white py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div
             ref={servicesRef}
-            className={`mb-16 reveal ${servicesInView ? "in-view" : ""}`}
+            className={`mb-14 flex flex-col justify-between gap-8 md:flex-row md:items-end reveal ${servicesInView ? "in-view" : ""}`}
           >
-            <span className="gold-rule" />
-            <h2 className="text-4xl md:text-5xl font-serif text-navy">
-              What we help with
-            </h2>
+            <div className="max-w-2xl">
+              <span className="gold-rule" />
+              <h2 className="text-4xl text-navy md:text-5xl">
+                What we help with
+              </h2>
+            </div>
+            <p className="max-w-md text-base leading-7 text-gray-600">
+              Mortgage advice and personal protection sit together. The right
+              plan should protect the loan, the income, and the people behind
+              it.
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-5">
-            {services.map((s, i) => (
-              <div
-                key={s.href}
-                className={`group relative overflow-hidden bg-white ${s.span} reveal reveal-delay-${Math.min(i + 1, 4)} ${servicesInView ? "in-view" : ""}`}
+          <div className="grid grid-cols-1 gap-px overflow-hidden border border-navy/10 bg-navy/10 md:grid-cols-2 lg:grid-cols-3">
+            {services.map((service, index) => (
+              <Link
+                key={service.href}
+                href={service.href}
+                className={`group bg-white reveal reveal-delay-${Math.min(index + 1, 4)} ${servicesInView ? "in-view" : ""}`}
               >
-                <div
-                  className={`w-full overflow-hidden ${s.imgHeight}`}
-                >
+                <div className="aspect-[4/3] overflow-hidden bg-navy">
                   <img
-                    src={s.img}
-                    alt={s.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    src={service.img}
+                    alt={service.title}
+                    className="h-full w-full object-cover opacity-88 transition duration-700 group-hover:scale-105 group-hover:opacity-100"
                   />
                 </div>
-                {/* Hover overlay */}
-                <div className="absolute inset-0 bg-navy/90 flex flex-col justify-end p-8 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out">
-                  <h3 className="text-2xl font-serif text-white mb-3">
-                    {s.title}
-                  </h3>
-                  <p className="text-white/70 text-sm leading-relaxed mb-5">
-                    {s.desc}
+                <div className="min-h-[15rem] p-7">
+                  <div className="mb-8 flex items-center justify-between gap-4">
+                    <span className="text-xs font-semibold uppercase tracking-[0.16em] text-gold">
+                      {service.proof}
+                    </span>
+                    <ArrowRight className="h-4 w-4 text-navy/35 transition group-hover:translate-x-1 group-hover:text-gold" />
+                  </div>
+                  <h3 className="text-2xl text-navy">{service.title}</h3>
+                  <p className="mt-4 text-sm leading-6 text-gray-600">
+                    {service.desc}
                   </p>
-                  <Link
-                    href={s.href}
-                    className="text-gold text-xs uppercase tracking-widest font-semibold hover:underline inline-flex items-center gap-2"
-                  >
-                    Learn more <span aria-hidden="true">&rarr;</span>
-                  </Link>
                 </div>
-                {/* Default label (visible when not hovering) */}
-                <div className="p-6">
-                  <h3 className="text-xl font-serif text-navy mb-1">{s.title}</h3>
-                  <p className="text-sm text-gray-500 line-clamp-1">{s.desc}</p>
-                </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Why A&L */}
-      <section className="py-28 bg-navy">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="bg-navy py-24 text-white">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div
             ref={whyRef}
-            className={`mb-0 reveal ${whyInView ? "in-view" : ""}`}
+            className={`max-w-3xl reveal ${whyInView ? "in-view" : ""}`}
           >
             <span className="gold-rule" />
-            <h2 className="text-4xl md:text-5xl font-serif text-white mb-0">
+            <h2 className="text-4xl leading-tight text-white md:text-5xl">
               The difference is in how we work
             </h2>
           </div>
 
-          <div className="mt-0 divide-y divide-white/10">
-            {whyPoints.map((point, i) => (
+          <div className="mt-14 divide-y divide-white/10 border-y border-white/10">
+            {whyPoints.map((point, index) => (
               <div
                 key={point.num}
-                className={`grid grid-cols-12 gap-6 py-14 reveal reveal-delay-${i + 1} ${whyInView ? "in-view" : ""}`}
+                className={`grid gap-8 py-10 md:grid-cols-[8rem_1fr_1.5fr] md:items-start reveal reveal-delay-${index + 1} ${whyInView ? "in-view" : ""}`}
               >
-                <div className="col-span-2 sm:col-span-1 flex items-start pt-1">
-                  <span className="text-5xl md:text-6xl font-serif text-gold/15 leading-none select-none">
-                    {point.num}
-                  </span>
-                </div>
-                <div className="col-span-10 sm:col-span-5">
-                  <h3 className="text-2xl md:text-3xl font-serif text-gold mb-4">
-                    {point.title}
-                  </h3>
-                  <p className="text-white/65 leading-relaxed text-lg">
-                    {point.desc}
-                  </p>
-                </div>
+                <span className="text-5xl leading-none text-gold/25">
+                  {point.num}
+                </span>
+                <h3 className="text-3xl text-gold">{point.title}</h3>
+                <p className="text-lg leading-8 text-white/66">{point.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="py-28 bg-surface">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="bg-[#EEE9DC] py-24">
+        <div className="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-[.85fr_1.15fr] lg:px-8">
+          <div className="lg:sticky lg:top-28 lg:self-start">
+            <span className="gold-rule" />
+            <h2 className="text-4xl leading-tight text-navy md:text-5xl">
+              A small firm feel with proper market access.
+            </h2>
+            <p className="mt-6 text-base leading-7 text-gray-700">
+              A&L is personal by design. You speak to Anthony, you know what is
+              being recommended, and you understand why it suits your
+              circumstances.
+            </p>
+          </div>
+          <div className="grid gap-4 sm:grid-cols-2">
+            {[
+              ["Mortgage fee", "£457 to £997, agreed before work begins"],
+              [
+                "Insurance advice",
+                "No client fee, commission paid by provider",
+              ],
+              ["Advice style", "Home, office, or phone appointments"],
+              [
+                "Regulatory status",
+                "Appointed representative of PRIMIS Mortgage Network",
+              ],
+            ].map(([label, value]) => (
+              <div key={label} className="border border-navy/10 bg-surface p-6">
+                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-gray-500">
+                  {label}
+                </p>
+                <p className="mt-4 text-xl leading-snug text-navy">{value}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-surface py-24">
+        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <div
             ref={testimonialsRef}
-            className={`mb-16 reveal ${testimonialsInView ? "in-view" : ""}`}
+            className={`mb-14 reveal ${testimonialsInView ? "in-view" : ""}`}
           >
             <span className="gold-rule" />
-            <h2 className="text-4xl md:text-5xl font-serif text-navy">
-              What clients say
-            </h2>
+            <h2 className="text-4xl text-navy md:text-5xl">What clients say</h2>
           </div>
 
-          <div className="divide-y divide-gray-200">
-            {testimonials.map((t, i) => (
-              <div
-                key={t.name}
-                className={`py-14 first:pt-0 last:pb-0 reveal reveal-delay-${i + 1} ${testimonialsInView ? "in-view" : ""}`}
+          <div className="space-y-5">
+            {testimonials.map((testimonial, index) => (
+              <article
+                key={testimonial.name}
+                className={`grid gap-8 border border-navy/10 bg-white p-7 shadow-[0_24px_70px_rgba(13,27,42,.05)] md:grid-cols-[13rem_1fr] md:p-9 reveal reveal-delay-${index + 1} ${testimonialsInView ? "in-view" : ""}`}
               >
-                <p className="text-2xl md:text-3xl font-serif text-navy leading-snug mb-7">
-                  "{t.text}"
+                <div>
+                  <p className="text-xl text-navy">{testimonial.name}</p>
+                  <p className="mt-2 text-xs font-semibold uppercase tracking-[0.15em] text-gold">
+                    {testimonial.meta}
+                  </p>
+                </div>
+                <p className="text-2xl leading-snug text-navy md:text-3xl">
+                  “{testimonial.text}”
                 </p>
-                <p className="text-xs uppercase tracking-widest text-gray-400 font-semibold">
-                  {t.name}
-                </p>
-              </div>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA Strip */}
       <section
         ref={ctaRef}
-        className={`bg-gold py-20 reveal ${ctaRef ? "in-view" : ""}`}
+        className={`bg-gold py-20 reveal ${ctaInView ? "in-view" : ""}`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-10">
+        <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-10 px-4 sm:px-6 md:flex-row md:items-center lg:px-8">
           <div>
-            <p className="text-xs uppercase tracking-widest text-navy/50 mb-3">
-              Free consultation
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-navy/55">
+              Free first conversation
             </p>
-            <h2 className="text-3xl md:text-4xl font-serif text-navy max-w-lg">
-              Not sure what cover you need? That's exactly what we're here for.
+            <h2 className="mt-4 max-w-2xl text-4xl leading-tight text-navy md:text-5xl">
+              Not sure what cover you need? That's exactly what Anthony is here
+              for.
             </h2>
           </div>
-          <Link
-            href="/contact"
-            className="btn-al btn-al-navy shrink-0"
-            data-testid="link-cta-book"
-          >
+          <Link href="/contact" className="btn-al btn-al-navy shrink-0">
             Book a free appointment
           </Link>
         </div>
