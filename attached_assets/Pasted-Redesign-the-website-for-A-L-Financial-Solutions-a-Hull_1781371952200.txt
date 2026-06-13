@@ -1,0 +1,315 @@
+Redesign the website for A&L Financial Solutions — a Hull-based financial advice firm
+specialising in mortgages, life cover, and personal protection insurance. The adviser
+is Anthony Thackeray. The firm is authorised and regulated by the FCA as an appointed
+representative of PRIMIS Mortgage Network.
+
+This is a full redesign, not a refresh. The current site uses a generic WordPress
+theme with stock imagery and weak copy. The new site must look like it was built by
+a specialist studio — clean, trustworthy, and premium without being cold.
+
+---
+
+BRAND IDENTITY
+
+Logo image: https://aandlfinancial.com/wp-content/uploads/2020/07/AL-Logo-WHITE.png
+Use this logo in the header on a dark background so it remains visible (it is white).
+
+Palette:
+  - Background:   #0D1B2A  (deep navy — primary dark)
+  - Surface:      #F7F5F0  (warm off-white — light sections)
+  - Accent:       #F5C842  (gold/amber — from original yellow brand)
+  - Text dark:    #1A1A1A
+  - Text light:   #FFFFFF
+  - Muted:        #6B7280
+
+Typography (Google Fonts):
+  - Headings: "DM Serif Display" — warm, authoritative, not corporate
+  - Body:     "Inter" — clean and highly readable
+
+Design feel: Trusted. Human. Grounded. Think a well-run independent financial
+adviser — not a faceless bank. White space, real testimonials, genuine copy.
+
+Do NOT use:
+- Parallax scroll effects
+- Animated counters
+- Generic stock photo hero with overlay text
+- Three-column icon grids
+- Quote mark testimonial cards
+- Gradient buttons
+- Em dashes (—) anywhere in copy
+
+---
+
+PAGES TO BUILD
+
+1. index.html       — Home
+2. about.html       — About Anthony & the firm
+3. services/life-cover.html
+4. services/critical-illness.html
+5. services/income-protection.html
+6. services/mortgage-broker.html
+7. services/mortgage-protection.html
+8. services/home-insurance.html
+9. contact.html
+
+---
+
+IMAGES TO REUSE FROM THE EXISTING SITE
+
+Use these exact URLs for images — do not use placeholder images:
+
+Hero / main feature:
+https://aandlfinancial.com/wp-content/uploads/2018/06/iStock-672386182-5a78f5346bf0690037752017.jpg
+
+Life cover card:
+https://aandlfinancial.com/wp-content/uploads/2018/06/pregnant.jpg
+
+Critical illness card:
+https://aandlfinancial.com/wp-content/uploads/2018/06/critical-ilness.jpg
+
+Home insurance card:
+https://aandlfinancial.com/wp-content/uploads/2018/06/yellow-house.jpg
+
+Mortgage / family:
+https://aandlfinancial.com/wp-content/uploads/2018/07/family-hands-house.png
+
+About page team:
+https://aandlfinancial.com/wp-content/uploads/2018/06/team-meeting.png
+
+Logo (white):
+https://aandlfinancial.com/wp-content/uploads/2020/07/AL-Logo-WHITE.png
+
+---
+
+HOME PAGE LAYOUT
+
+Section 1 — Hero (dark navy background, logo top-left)
+  Headline: "Protection built around your life. Not a product brochure."
+  Subheading: Anthony Thackeray at A&L Financial takes time to understand your
+  situation — then finds cover that actually fits it.
+  CTA button (gold): "Start a conversation"  → links to contact.html
+  Secondary link: "See our services" → scrolls to services section
+  Background: use the iStock hero image with a dark navy overlay at ~70% opacity
+
+Section 2 — Services grid (light background)
+  Heading: "What we help with"
+  Layout: 2-column asymmetric grid (not 3-column icons)
+  Cards for: Life Cover, Critical Illness, Income Protection, Mortgage Broker,
+  Mortgage Protection, Home Insurance
+  Each card: image, service name, one-sentence plain description, "Learn more" link
+  Use the real images from the URLs above where relevant
+
+Section 3 — Why A&L (dark navy background)
+  Heading: "The difference is in how we work"
+  Three short points as large text blocks (not icons), describing:
+  1. "We come to you" — appointments at home, at your office, or by phone
+  2. "We search the market" — access to a panel of providers, not one insurer
+  3. "We explain everything" — no jargon, no pressure, just clear advice
+  Each point: bold label + 2-sentence description
+
+Section 4 — Testimonials (warm off-white background)
+  Heading: "What clients say"
+  Layout: stacked cards (full width), not a carousel
+  Use these real testimonials verbatim:
+
+  TESTIMONIAL 1
+  Name: Rebecca Poole
+  "Anthony at A&L has been professional, understanding, efficient and kind. Our
+  mortgage was sorted the same day we sent our documentation. I can't recommend
+  him enough."
+
+  TESTIMONIAL 2
+  Name: Siobhan Dunn
+  "As first-time buyers with specific requirements, Anthony was instrumental in
+  making it happen. Quick, responsive, and he went above and beyond from start
+  to finish."
+
+  TESTIMONIAL 3
+  Name: Alexander Marsh
+  "We didn't have a clue where to start. Anthony set our minds at ease, took
+  all the stress out of the process, and found us the best mortgage rate possible.
+  Would recommend to anyone."
+
+Section 5 — CTA strip (gold background, dark text)
+  Text: "Not sure what cover you need? That's exactly what we're here for."
+  Button: "Book a free appointment" → contact.html
+
+Section 6 — Footer (dark navy)
+  Logo (white), address, phone, email, services links, useful links
+  Legal disclaimer (full text — see below)
+
+---
+
+ABOUT PAGE
+
+Heading: "A&L Financial — Protection advice from someone who listens"
+
+Body copy to write based on these facts:
+- Founded by Anthony Thackeray, based in Hull
+- Firm: A&L Financial Solutions Ltd, registered in England and Wales, No. 09731522
+- Registered address: 20 The Pines, Kingswood, Hull, England, HU7 3GT
+- Appointed representative of PRIMIS Mortgage Network (trading name of First
+  Complete Limited), which is authorised and regulated by the FCA
+- Advice services cover: life cover, critical illness, income protection, accident
+  cover, family income benefit, home insurance, mortgage protection, mortgage
+  brokering, trusts and wills
+- Appointments: home visits, office appointments, or telephone
+
+Write the copy in a warm but professional tone. No mission statements.
+No "we are committed to" or "passionate about". Tell the story of what they
+actually do and how they work with clients.
+
+Include the 3-step process:
+Step 1: Book an appointment — home, office, or phone
+Step 2: Anthony reviews your situation and needs
+Step 3: He recommends the most suitable option from the panel
+
+Use the team-meeting image on this page.
+
+---
+
+SERVICE PAGES (one each)
+
+Each service page follows this structure:
+- Page heading (service name)
+- Short intro: what this type of cover is and who needs it
+- What it covers (3-4 plain-language bullet points)
+- Who it's for (1 paragraph, specific scenarios not generic claims)
+- How A&L helps (1 paragraph — Anthony searches the market, no bias to one insurer)
+- CTA: "Talk to Anthony about [service name]" → contact.html
+
+Write all copy from scratch. Use plain English. No jargon. No marketing fluff.
+
+SERVICE DETAILS TO USE:
+
+LIFE COVER
+- Pays a lump sum if you die during the policy term
+- Can be used to pay off a mortgage, cover lost income, or support dependents
+- Premiums depend on age, health, term length, and amount of cover
+- A&L searches across a panel of insurers to find the right fit
+
+CRITICAL ILLNESS
+- Pays a tax-free lump sum on diagnosis of a specified serious illness
+- Covers conditions like cancer, heart attack, and stroke (varies by provider)
+- Can be used for treatment, adaptations to your home, or replacing lost income
+- Separate from life cover — pays out while you're alive, not on death
+
+INCOME PROTECTION
+- Pays a regular income if you can't work due to illness or injury
+- Covers a percentage of your pre-illness income until you return to work
+- Deferred period and benefit period set when you take out the policy
+- Often overlooked — statutory sick pay alone is rarely enough to live on
+
+MORTGAGE BROKER
+- Anthony searches the mortgage market on your behalf
+- Access to a wide panel of lenders, including deals not available direct
+- First-time buyers, home movers, and remortgages all covered
+- Fee: between £457 and £997, agreed before any work begins, payable on completion
+
+MORTGAGE PROTECTION
+- Designed to pay off your outstanding mortgage balance if you die during the term
+- Often set up as decreasing term insurance — cover reduces alongside the mortgage
+- Can be combined with life cover or critical illness depending on your needs
+- Ensures your family keeps the home if you're no longer there
+
+HOME INSURANCE
+- Covers buildings (the structure) and/or contents (your belongings)
+- Buildings insurance: required by most mortgage lenders
+- Contents insurance: covers theft, fire, flooding, and accidental damage
+- A&L helps you find cover that matches what you actually own and need
+
+---
+
+CONTACT PAGE
+
+Heading: "Let's talk about your cover"
+Subheading: "There's no obligation. Anthony will listen to your situation first,
+then give you honest advice on what cover — if any — makes sense."
+
+Contact form fields:
+- Full name (required)
+- Phone number (required)
+- Email address (required)
+- How would you like to be contacted? (radio: Phone / Email / Either)
+- What are you looking for help with? (checkboxes: Life Cover, Critical Illness,
+  Income Protection, Mortgage, Home Insurance, Not sure yet)
+- Anything else you'd like to mention? (textarea, optional)
+- Submit button: "Send my enquiry"
+
+On submit: show a success message — "Thanks — Anthony will be in touch within
+one working day."
+
+Also display:
+- Phone: 07715832346
+- Email: Info@aandlfinancial.com
+- Address: 20 The Pines, Kingswood, Hull, HU7 3GT
+
+---
+
+NAVIGATION
+
+Desktop: horizontal nav — Home | Services (dropdown) | About | Contact
+Mobile: hamburger icon, full-screen overlay menu
+Active page highlighted in gold accent colour
+Services dropdown lists all 6 service pages
+
+---
+
+LEGAL FOOTER DISCLAIMER (include on every page footer, small text)
+
+"Your home may be repossessed if you do not keep up repayments on your mortgage.
+A&L Financial Solutions Ltd is an appointed representative of PRIMIS Mortgage
+Network, a trading name of First Complete Limited. First Complete Limited is
+authorised and regulated by the Financial Conduct Authority. Registered in England
+and Wales. Registered office: 20 The Pines, Kingswood, Hull, England, HU7 3GT.
+Registration No: 09731522. For mortgage advice, we charge a fee of between £457
+and £997, agreed before we begin. For insurance services, we receive commission
+from the product provider — no fee is charged to you."
+
+---
+
+FILE STRUCTURE
+
+/index.html
+/about.html
+/contact.html
+/services/life-cover.html
+/services/critical-illness.html
+/services/income-protection.html
+/services/mortgage-broker.html
+/services/mortgage-protection.html
+/services/home-insurance.html
+/css/styles.css
+/js/main.js
+
+---
+
+TECHNICAL REQUIREMENTS
+
+- Mobile-first, fully responsive
+- CSS custom properties for all colours and fonts
+- No inline styles
+- Semantic HTML: header, nav, main, section, footer
+- All images have descriptive alt text
+- Contact form: client-side validation, success message on submit (no backend needed)
+- Smooth scroll for anchor links
+- Hamburger nav closes after selecting a link on mobile
+- Meta title and description on every page
+
+---
+
+QUALITY CHECKS — verify before finishing:
+
+- [ ] Logo is visible on dark header (white logo on navy background)
+- [ ] All 6 real images load correctly from the URLs provided
+- [ ] No placeholder copy anywhere — every page has real, specific content
+- [ ] No em dashes anywhere in the site
+- [ ] No phrases: "passionate about", "dedicated to", "seamlessly", "robust",
+      "elevate", "unlock", "we are committed to", "peace of mind" (overused),
+      "leading provider"
+- [ ] Services dropdown shows all 6 services
+- [ ] Every service page has a working CTA linking to contact.html
+- [ ] Legal disclaimer appears in footer on every page
+- [ ] Mobile hamburger menu opens and closes correctly
+- [ ] Contact form validates required fields and shows success message
+
