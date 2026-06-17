@@ -31,13 +31,30 @@ export default function About() {
         description="A&L Financial Solutions was founded by Anthony Thackeray and is based in Hull, providing expert advice on mortgages and protection."
       />
 
-      {/* Dark navy page hero */}
-      <section className="bg-navy pt-20 pb-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <span className="gold-rule" />
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif text-white leading-tight max-w-3xl">
-            Protection advice from someone who listens
-          </h1>
+      {/* Page hero — split layout with image */}
+      <section className="overflow-hidden bg-navy">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid items-end lg:grid-cols-2 lg:gap-16">
+            <div className="pb-16 pt-20 lg:pb-24">
+              <span className="gold-rule" />
+              <h1 className="text-5xl font-serif text-white leading-tight md:text-6xl lg:text-7xl">
+                Protection advice from someone who listens
+              </h1>
+              <p className="mt-6 max-w-md text-lg leading-relaxed text-white/60">
+                Anthony Thackeray founded A&L Financial Solutions to give Hull
+                families honest, personal advice — without jargon, without
+                pressure.
+              </p>
+            </div>
+            <div className="relative hidden h-[480px] lg:block">
+              <img
+                src="https://aandlfinancial.com/wp-content/uploads/2018/06/team-meeting.png"
+                alt="Anthony in a client meeting"
+                className="absolute bottom-0 right-0 h-full w-full object-cover object-top"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-navy/70 via-navy/20 to-transparent" />
+            </div>
+          </div>
         </div>
       </section>
 

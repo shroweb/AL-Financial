@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "al-financial",
+      "runtimeExecutable": "bash",
+      "runtimeArgs": ["-c", "PORT=5173 BASE_PATH=/ pnpm --filter @workspace/al-financial run dev"],
+      "port": 5173
+    }
+  ]
+}
