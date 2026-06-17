@@ -74,6 +74,18 @@ function LineTextarea({
   );
 }
 
+const partners = [
+  { name: "Aviva", img: "https://aandlfinancial.com/wp-content/uploads/2018/06/logo-aviva-200x125.jpg" },
+  { name: "Legal & General", img: "https://aandlfinancial.com/wp-content/uploads/2018/06/legal-and-general.gif" },
+  { name: "Vitality", img: "https://aandlfinancial.com/wp-content/uploads/2018/06/vitality-200x115.jpg" },
+  { name: "Cirencester", img: "https://aandlfinancial.com/wp-content/uploads/2018/06/download-1-1-200x74.png" },
+  { name: "Royal London", img: "https://aandlfinancial.com/wp-content/uploads/2018/06/royal-london-logo-200x117.png" },
+  { name: "LV", img: "https://aandlfinancial.com/wp-content/uploads/2018/06/lv-logo-1000x284-1-200x57.jpg" },
+  { name: "AIG", img: "https://aandlfinancial.com/wp-content/uploads/2018/06/AIG_logo.svg-1-200x108.png" },
+  { name: "Exeter", img: "https://aandlfinancial.com/wp-content/uploads/2018/06/http_2F2Fs3-eu-west-1.amazonaws.com2Ffta-assets-development2Fez2Fimages2F22F92F92F72F1167992-1-eng-GB2FEX_Logo_CMYK1-200x77.jpg" },
+  { name: "Zurich", img: "https://aandlfinancial.com/wp-content/uploads/2018/06/Zurich-Logo-Wallpaper-200x145.jpg" },
+];
+
 export default function Contact() {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
@@ -344,6 +356,29 @@ export default function Contact() {
           )}
         </div>
       </div>
+
+      {/* Who we work with */}
+      <section className="border-t border-navy/10 bg-surface py-14">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <p className="mb-10 text-center text-xs font-semibold uppercase tracking-[0.22em] text-gray-400">
+            Who we work with
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-6">
+            {partners.map((partner) => (
+              <div
+                key={partner.name}
+                className="flex items-center justify-center border border-navy/10 bg-white px-6 py-4 w-36 h-20 transition-all hover:border-navy/20 hover:shadow-sm"
+              >
+                <img
+                  src={partner.img}
+                  alt={partner.name}
+                  className="max-h-12 max-w-full object-contain"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
     </>
   );
 }
